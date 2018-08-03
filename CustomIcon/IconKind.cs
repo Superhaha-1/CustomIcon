@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CustomIcon
 {
-    public enum CustomIconKind
+    public enum IconKind
     {
-        Save,
+        Default,
+        Save
     }
 }

@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:CustomIcon"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
-        
+        <Image>
+            <Image.Source>
+                <local:Icon Kind="Save"/>
+            </Image.Source>
+        </Image>
     </Grid>
 </Window>
