@@ -1,5 +1,7 @@
 ﻿using System.Windows.Media;
 using System.Collections.Generic;
+using System.Windows;
+using System.Diagnostics.Contracts;
 
 namespace CustomIcon
 {
@@ -42,19 +44,68 @@ namespace CustomIcon
             switch (iconKind)
             {
                 case IconKind.SaveDocument:
-                    return PutInLeft(IconKind.Document, IconKind.Save);
+                    return Combine(IconKind.Document, IconKind.Save);
             }
             return null;
         }
 
-
-        public static Drawing PutInLeft(IconKind baseElement, IconKind modifier)
+        private static Drawing Combine(IconKind middle, IconKind leftTop = IconKind.Default, IconKind rightTop = IconKind.Default, IconKind rightBottom = IconKind.Default, IconKind leftBottom = IconKind.Default)
         {
-            var baseDrawing = (Instance[baseElement] as DrawingGroup).Clone();
-            var modifierDrawing = (Instance[modifier] as DrawingGroup).Clone();
-            baseDrawing.Transform = new ScaleTransform(0.9, 0.9, 16, 16);
-            modifierDrawing.Transform = new ScaleTransform(0.5, 0.5);
-            return new DrawingGroup() { Children = { baseDrawing, modifierDrawing } };
+            double middleHeight = 1;
+            double middleWidth = 1;
+            Point middleCenter = new Point(8, 8);
+            if ((leftTop | rightTop) != IconKind.Default)
+            {
+                middleHeight -= 0.1;
+                middleCenter.Y += 8;
+            }
+            if((leftBottom | rightBottom) != IconKind.Default)
+            {
+                middleHeight -= 0.1;
+                middleCenter.Y -= 8;
+            }
+            if ((rightTop | rightBottom) != IconKind.Default)
+            {
+                middleWidth -= 0.1;
+                middleCenter.X -= 8;
+            }
+            if ((leftTop | leftBottom) != IconKind.Default)
+            {
+                middleWidth -= 0.1;
+                middleCenter.X += 8;
+            }
+            Contract.Assert(middleWidth != 1 || middleHeight != 1);
+            DrawingGroup drawingGroup = new DrawingGroup();
+            var baseDrawing = (Instance[middle] as DrawingGroup).Clone();
+            baseDrawing.Transform = new ScaleTransform(middleWidth, middleHeight, middleCenter.X, middleCenter.Y);
+            drawingGroup.Children.Add(baseDrawing);
+            DrawingGroup modifier = null;
+            if (leftTop != IconKind.Default)
+            {
+                modifier = (Instance[leftTop] as DrawingGroup).Clone();
+                modifier.Transform = new ScaleTransform(0.5, 0.5, 0, 0);
+                drawingGroup.Children.Add(modifier);
+            }
+            if (rightTop != IconKind.Default)
+            {
+                modifier = (Instance[rightTop] as DrawingGroup).Clone();
+                modifier.Transform = new ScaleTransform(0.5, 0.5, 16, 0);
+                drawingGroup.Children.Add(modifier);
+            }
+            if (rightBottom != IconKind.Default)
+            {
+                modifier = (Instance[rightBottom] as DrawingGroup).Clone();
+                modifier.Transform = new ScaleTransform(0.5, 0.5, 16, 16);
+                drawingGroup.Children.Add(modifier);
+            }
+            if (leftBottom != IconKind.Default)
+            {
+                modifier = (Instance[leftBottom] as DrawingGroup).Clone();
+                modifier.Transform = new ScaleTransform(0.5, 0.5, 0, 16);
+                drawingGroup.Children.Add(modifier);
+            }
+            drawingGroup.Freeze();
+            return drawingGroup;
         }
     }
 }
