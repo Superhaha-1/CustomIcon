@@ -4,14 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomIcon"
+        xmlns:fluent="urn:fluent-ribbon"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Grid>
-        <Image>
-            <Image.Source>
-                <local:Icon Kind="Save"/>
-            </Image.Source>
-        </Image>
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Accents/Purple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Colors/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Canvas>
+        <StackPanel>
+            <fluent:Button Header="Test" Style="{StaticResource RibbonButtonStyle}" SizeDefinition="Large">
+                <fluent:Button.Icon>
+                    <local:Icon Kind="Save"/>
+                </fluent:Button.Icon>
+                <fluent:Button.LargeIcon>
+                    <local:Icon Kind="Save" SizeDefinition="32"/>
+                </fluent:Button.LargeIcon>
+            </fluent:Button>
+            <fluent:Button Header="Test" Style="{StaticResource RibbonButtonStyle}" SizeDefinition="Large">
+                <fluent:Button.Icon>
+                    <local:Icon Kind="Document"/>
+                </fluent:Button.Icon>
+                <fluent:Button.LargeIcon>
+                    <local:Icon Kind="Document" SizeDefinition="32"/>
+                </fluent:Button.LargeIcon>
+            </fluent:Button>
+            <fluent:Button Header="Test" Style="{StaticResource RibbonButtonStyle}" SizeDefinition="Large">
+                <fluent:Button.Icon>
+                    <local:Icon Kind="SaveDocument"/>
+                </fluent:Button.Icon>
+                <fluent:Button.LargeIcon>
+                    <local:Icon Kind="SaveDocument" SizeDefinition="32"/>
+                </fluent:Button.LargeIcon>
+            </fluent:Button>
+        </StackPanel>
+    </Canvas>
 </Window>

@@ -11,5 +11,41 @@
             <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M11,2L11,7 5,7 5,2 8,2 8,5 10,5 10,2z" />
         </DrawingGroup.Children>
     </DrawingGroup>
-    
+
+    <DrawingGroup x:Key="{x:Static local:IconKind.Document}">
+        <DrawingGroup.Children>
+            <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z"/>
+            <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M4,15C3.03,15,2,14.299,2,13L2,3C2,1.701,3.03,1,4,1L10.061,1 14,4.556 14,13C14,13.97,13.299,15,12,15z" />
+            <GeometryDrawing Brush="#FF424242" Geometry="F1M12,13L4,13 4,3 9,3 9,6 12,6z M9.641,2L3.964,2C3.964,2,3,2,3,3L3,13C3,14,3.965,14,3.965,14L11.965,14C12.965,14,13,13,13,13L13,5z" />
+            <GeometryDrawing Brush="#FFF0EFF1" Geometry="F1M4,3L9,3 9,6 12,6 12,13 4,13z" />
+        </DrawingGroup.Children>
+    </DrawingGroup>
+
+    <!--<DrawingGroup x:Key="{x:Static local:IconKind.SaveDocument}">
+        <DrawingGroup.Children>
+            <ImageDrawing Rect="0,0,1,1">
+                <ImageDrawing.ImageSource>
+                    <DrawingImage Drawing="{StaticResource {x:Static local:IconKind.Document}}" />
+                </ImageDrawing.ImageSource>
+            </ImageDrawing>
+            <DrawingGroup>
+                <DrawingGroup.Transform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </DrawingGroup.Transform>
+                <DrawingGroup.Children>
+                    <ImageDrawing Rect="0,0,1,1">
+                        <ImageDrawing.ImageSource>
+                            <DrawingImage Drawing="{StaticResource {x:Static local:IconKind.Save}}" />
+                        </ImageDrawing.ImageSource>
+                    </ImageDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingGroup.Children>
+    </DrawingGroup>-->
+
 </ResourceDictionary>

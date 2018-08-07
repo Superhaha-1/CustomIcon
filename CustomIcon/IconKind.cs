@@ -9,6 +9,8 @@ namespace CustomIcon
     public enum IconKind
     {
         Default,
-        Save
+        Save,
+        Document,
+        SaveDocument,
     }
 }
