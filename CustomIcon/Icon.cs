@@ -71,7 +71,7 @@ namespace CustomIcon
             {
                 double scale = (int)e.NewValue / (double)(int)e.OldValue;
                 (dependencyObject as Icon)._drawingVisual.Transform = new ScaleTransform(scale, scale);
-                    }
+            }
         }
 
         #endregion

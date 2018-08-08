@@ -21,31 +21,4 @@
         </DrawingGroup.Children>
     </DrawingGroup>
 
-    <!--<DrawingGroup x:Key="{x:Static local:IconKind.SaveDocument}">
-        <DrawingGroup.Children>
-            <ImageDrawing Rect="0,0,1,1">
-                <ImageDrawing.ImageSource>
-                    <DrawingImage Drawing="{StaticResource {x:Static local:IconKind.Document}}" />
-                </ImageDrawing.ImageSource>
-            </ImageDrawing>
-            <DrawingGroup>
-                <DrawingGroup.Transform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </DrawingGroup.Transform>
-                <DrawingGroup.Children>
-                    <ImageDrawing Rect="0,0,1,1">
-                        <ImageDrawing.ImageSource>
-                            <DrawingImage Drawing="{StaticResource {x:Static local:IconKind.Save}}" />
-                        </ImageDrawing.ImageSource>
-                    </ImageDrawing>
-                </DrawingGroup.Children>
-            </DrawingGroup>
-        </DrawingGroup.Children>
-    </DrawingGroup>-->
-
 </ResourceDictionary>
